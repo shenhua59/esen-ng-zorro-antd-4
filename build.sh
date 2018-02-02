@@ -27,7 +27,7 @@ export ROLLUP_FORMAT=umd
 $(npm bin)/rollup -c rollup.config.js
 
 echo 'Minifying umd module'
-$(npm bin)/uglifyjs publish/bundles/esen-ng-zorro-antd.umd.js --output publish/bundles/esen-ng-zorro-antd.umd.min.js
+$(npm bin)/uglifyjs publish/bundles/esen-ng-zorro-antd-4.umd.js --output publish/bundles/esen-ng-zorro-antd-4.umd.min.js
 
 echo 'Copying package.json'
 cp package.json publish/package.json

@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { EsenNgZorroAntdModule, NZ_ROOT_CONFIG, NzRootConfig } from './esen-ng-zorro-antd.module';
+import { EsenNgZorroAntdModule, NZ_ROOT_CONFIG, NzRootConfig } from './esen-ng-zorro-antd-4.module';
 
 describe('EsenNgZorroAntdModule with Angular integration', () => {
   it('should not provide root config with empty forRoot', async(() => {

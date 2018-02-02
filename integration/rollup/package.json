@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "setup": "mkdir -p lib/esen-ng-zorro-antd && rsync -av --exclude=\".*\" ../../publish/ lib/esen-ng-zorro-antd",
+    "setup": "mkdir -p lib/esen-ng-zorro-antd-4 && rsync -av --exclude=\".*\" ../../publish/ lib/esen-ng-zorro-antd-4",
     "clean": "rimraf out-tsc src/node_modules src/**/*.ngfactory.ts src/**/*.ngsummary.json",
     "prestart": "npm run build",
     "start": "http-server dist",
@@ -32,7 +32,7 @@
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
     "moment": "^2.18.1",
-    "esen-ng-zorro-antd": "file:lib/esen-ng-zorro-antd",
+    "esen-ng-zorro-antd-4": "file:lib/esen-ng-zorro-antd-4",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
