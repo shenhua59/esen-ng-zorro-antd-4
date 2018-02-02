@@ -8,13 +8,13 @@ import { NzDemoBackTopComponent } from './nz-demo-back-top.component';
 
 
 import { NzCodeBoxModule } from '../share/nz-codebox/nz-codebox.module';
-import { NgZorroAntdModule } from '../../../index.showcase';
+import { EsenNgZorroAntdModule } from '../../../index.showcase';
 
 import { NzDemoBackTopRoutingModule } from './nz-demo-back-top.routing.module';
 
 @NgModule({
   declarations: [ NzDemoBackTopComponent, NzDemoBackTopBasicComponent, NzDemoBackTopCustomComponent, NzDemoBackTopTargetComponent ],
-  imports     : [ NzDemoBackTopRoutingModule, CommonModule, NzCodeBoxModule, NgZorroAntdModule ]
+  imports     : [ NzDemoBackTopRoutingModule, CommonModule, NzCodeBoxModule, EsenNgZorroAntdModule ]
 })
 
 export class NzDemoBackTopModule {

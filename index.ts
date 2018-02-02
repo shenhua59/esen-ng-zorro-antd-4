@@ -1,1 +1,1 @@
-export * from './src/release/ng-zorro-antd.module';
+export * from './src/release/esen-ng-zorro-antd.module';

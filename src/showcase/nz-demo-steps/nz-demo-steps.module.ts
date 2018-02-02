@@ -15,13 +15,13 @@ import { NzDemoStepsVerticalMiniComponent } from './nz-demo-steps-vertical-mini.
 import { NzDemoStepsErrorComponent } from './nz-demo-steps-error.component'
 
 import { NzCodeBoxModule } from '../share/nz-codebox/nz-codebox.module';
-import { NgZorroAntdModule } from '../../../index.showcase';
+import { EsenNgZorroAntdModule } from '../../../index.showcase';
 
 @NgModule({
   imports     : [
     CommonModule,
     NzCodeBoxModule,
-    NgZorroAntdModule,
+    EsenNgZorroAntdModule,
     RouterModule.forChild([
       {
         path     : '',

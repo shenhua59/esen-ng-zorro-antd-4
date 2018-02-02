@@ -277,11 +277,11 @@ export { NZ_ROOT_CONFIG, NzRootConfig } from './root/nz-root-config';
     NzAvatarModule
   ]
 })
-export class NgZorroAntdModule {
+export class EsenNgZorroAntdModule {
 
   static forRoot(options?: NzRootConfig): ModuleWithProviders {
     return {
-      ngModule: NgZorroAntdModule,
+      ngModule: EsenNgZorroAntdModule,
       providers: [
         // Services
         NzNotificationService,

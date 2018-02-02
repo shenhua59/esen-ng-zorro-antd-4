@@ -1,6 +1,6 @@
 {
   "name": "esen-ng-zorro-antd-4",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "license": "MIT",
   "description": "An enterprise-class UI components based on Ant Design and Angular",
   "scripts": {
@@ -15,7 +15,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "main": "./bundles/ng-zorro-antd.umd.js",
+  "main": "./bundles/esen-ng-zorro-antd.umd.js",
   "module": "./esm5/index.js",
   "es2015": "./esm15/index.js",
   "keywords": [
