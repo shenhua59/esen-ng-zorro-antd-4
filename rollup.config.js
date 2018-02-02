@@ -54,7 +54,7 @@ switch (format) {
     break
   case 'umd':
     input = './publish/esm5/index.js'
-    file = './publish/bundles/ng-zorro-antd.umd.js'
+    file = './publish/bundles/esen-ng-zorro-antd.umd.js'
     break
   default:
     throw new Error(`format ${format} is not supported`)
