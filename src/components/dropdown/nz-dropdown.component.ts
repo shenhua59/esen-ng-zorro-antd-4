@@ -15,6 +15,7 @@ import {
 import { merge } from 'rxjs/observable/merge';
 import { debounceTime } from 'rxjs/operator/debounceTime';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 import { Observer } from 'rxjs/Observer'
 import { NzMenuComponent } from '../menu/nz-menu.component';
@@ -42,7 +43,6 @@ export type NzPlacement = 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLe
       [positions]="_positions"
       [origin]="_nzOrigin"
       (backdropClick)="_hide()"
-      (detach)="_hide()"
       [minWidth]="_triggerWidth"
       (positionChange)="_onPositionChange($event)"
       [open]="nzVisible">
@@ -78,6 +78,7 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() nzTrigger: 'click' | 'hover' = 'hover';
   @Input() nzClickHide = true;
   @Input() nzVisible = false;
+  @Output() _visibleChange = new Subject();
   @Output() nzVisibleChange: EventEmitter<boolean> = new EventEmitter();
 
   @Input()
@@ -110,11 +111,11 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   _hide() {
-    this.nzVisibleChange.emit(false);
+    this._visibleChange.next(false);
   }
 
   _show() {
-    this.nzVisibleChange.emit(true);
+    this._visibleChange.next(true);
   }
 
   _onPositionChange(position) {
@@ -124,7 +125,7 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   _clickDropDown($event) {
     $event.stopPropagation();
     if (this.nzClickHide) {
-      this.nzVisible = false;
+      this._hide();
     }
   }
 
@@ -138,7 +139,10 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
         this._setTriggerWidth();
       }
     }
-    this.nzVisible = visible;
+    if (this.nzVisible !== visible) {
+      this.nzVisible = visible;
+      this.nzVisibleChange.emit(this.nzVisible);
+    }
     this._changeDetector.markForCheck();
   }
 
@@ -154,7 +158,9 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this._subscription.unsubscribe();
+    if (this._subscription) {
+      this._subscription.unsubscribe();
+    }
   }
 
   ngAfterViewInit() {
@@ -184,7 +190,7 @@ export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     const observable$ = merge(
       mouse$,
-      this.nzVisibleChange.asObservable()
+      this._visibleChange
     );
     this._startSubscribe(observable$);
   }
